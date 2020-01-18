@@ -25,7 +25,7 @@ class Category:
     """Returns the name of the category"""
     return self.__name
 
-  def get_items_list(self):
+  def get_items(self):
     """Returns a list of menu items in the category"""
     return self.__items
 

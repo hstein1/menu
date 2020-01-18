@@ -29,6 +29,9 @@ class Menu:
     """Returns the name of the menu"""
     return self.__name
 
+  def get_categories(self):
+    return self.__categories
+
   def get_category_list_str(self):
     """Returns a list of the categories in the menu formatted as strings"""
     category_list = ''
@@ -46,6 +49,10 @@ class Menu:
       for category in self.__categories:
         if category.get_name() == category_name:
           self.__categories.remove(category)
+
+  def add_item(self, category, item, price, calories):
+    newItem = MenuItem(item, price, calories)
+    self.__categories[self.__categories.index(category)].add_item(newItem)
 
   def __str__(self):
     """Formats the menu as a string"""

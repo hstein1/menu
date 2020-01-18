@@ -7,13 +7,14 @@ class MenuGUI:
   def __init__(self):
     """Constructor method for the GUI"""
     self.__window = Tk() #Create main window
+    self.__frame = Frame(self.__window, bg="black")
 
-    self.__menu_frame = Frame(self.__window) #Create menu frame
-    self.__meal_frame = Frame(self.__window) #Create meal frame
+    self.__menu_frame = Frame(self.__frame, bg="black") #Create menu frame
+    self.__meal_frame = Frame(self.__frame, bg="black") #Create meal frame
 
-    
+    restaurantName = input("What is the name of your restaurant? ")
 
-    self.__menu = menu.Menu("Megan and Hank's Restaurant") #Create Menu
+    self.__menu = menu.Menu(restaurantName) #Create Menu
     
     # Create Menu Label
     self.__menu_label = Label(self.__menu_frame, text=self.__menu.get_name()\
@@ -75,96 +76,104 @@ class MenuGUI:
 
     
 #----- Salad Category Display ------------------------------------------------
-    self.__salads_label = Label(self.__menu_frame,\
+    self.__salads_frame = Frame(self.__menu_frame, bg="light green")
+    self.__salads_label = Label(self.__salads_frame,\
                                 text=self.__salads.get_name(),\
                                 )
     self.__salads_label.config(font=("Arial Bold", 18), bg="light green")
     self.__salads_label.pack(side='top')
 
-    self.__green_salad_label = Label(self.__menu_frame,\
+    self.__green_salad_label = Label(self.__salads_frame,\
                                      text=self.__green_salad.get_name(),\
-                                     )
-    self.__caesar_salad_label = Label(self.__menu_frame,\
+                                     bg="light green")
+    self.__caesar_salad_label = Label(self.__salads_frame,\
                                      text=self.__caesar_salad.get_name(),\
-                                     )
-    self.__greek_salad_label = Label(self.__menu_frame,\
+                                     bg="light green" )
+    self.__greek_salad_label = Label(self.__salads_frame,\
                                      text=self.__greek_salad.get_name(),\
-                                     )
+                                     bg="light green")
 
     self.__green_salad_label.pack(side='top')
     self.__caesar_salad_label.pack(side='top')
     self.__greek_salad_label.pack(side='top')
+    self.__salads_frame.pack(side="top")
 
 #----- Soup Category Display -------------------------------------------------
-    self.__soups_label = Label(self.__menu_frame,\
+    self.__soups_frame = Frame(self.__menu_frame, bg="light blue")
+    self.__soups_label = Label(self.__soups_frame,\
                                 text=self.__soups.get_name(),\
                                 )
     self.__soups_label.config(font=("Arial Bold", 18), bg="light blue")
     self.__soups_label.pack(side='top')
 
-    self.__chicken_soup_label = Label(self.__menu_frame,\
+    self.__chicken_soup_label = Label(self.__soups_frame,\
                                      text=self.__chicken_soup.get_name(),\
-                                     )
-    self.__vegetable_soup_label = Label(self.__menu_frame,\
+                                     bg="light blue")
+    self.__vegetable_soup_label = Label(self.__soups_frame,\
                                      text=self.__vegetable_soup.get_name(),\
-                                     )
-    self.__tomato_soup_label = Label(self.__menu_frame,\
+                                     bg="light blue")
+    self.__tomato_soup_label = Label(self.__soups_frame,\
                                      text=self.__tomato_soup.get_name(),\
-                                     )
-    self.__butternut_squash_soup_label = Label(self.__menu_frame,\
+                                     bg="light blue")
+    self.__butternut_squash_soup_label = Label(self.__soups_frame,\
                               text=self.__butternut_squash_soup.get_name(),\
-                                     )
+                                     bg="light blue")
 
     self.__chicken_soup_label.pack(side='top')
     self.__vegetable_soup_label.pack(side='top')
     self.__tomato_soup_label.pack(side='top')
     self.__butternut_squash_soup_label.pack(side='top')
+    self.__soups_frame.pack(side="top")
 
 #----- Entree Category Display -----------------------------------------------
-    self.__entrees_label = Label(self.__menu_frame,\
+    self.__entrees_frame = Frame(self.__menu_frame, bg="orange")
+    self.__entrees_label = Label(self.__entrees_frame,\
                                 text=self.__entrees.get_name(),\
                                 )
     self.__entrees_label.config(font=("Arial Bold", 18), bg="orange")
     self.__entrees_label.pack(side='top')
 
-    self.__steak_label = Label(self.__menu_frame,\
+    self.__steak_label = Label(self.__entrees_frame,\
                                      text=self.__steak.get_name(),\
-                                     )
-    self.__chicken_label = Label(self.__menu_frame,\
+                                     bg="orange")
+    self.__chicken_label = Label(self.__entrees_frame,\
                                      text=self.__chicken.get_name(),\
-                                     )
-    self.__salmon_label = Label(self.__menu_frame,\
+                                     bg="orange")
+    self.__salmon_label = Label(self.__entrees_frame,\
                                      text=self.__salmon.get_name(),\
-                                     )
-    self.__ravioli_label = Label(self.__menu_frame,\
+                                     bg="orange")
+    self.__ravioli_label = Label(self.__entrees_frame,\
                                      text=self.__ravioli.get_name(),\
-                                     )
+                                     bg="orange")
 
     self.__steak_label.pack(side='top')
     self.__chicken_label.pack(side='top')
     self.__salmon_label.pack(side='top')
     self.__ravioli_label.pack(side='top')
+    self.__entrees_frame.pack(side="top")
 
 #----- Dessert Category Display ----------------------------------------------
-    self.__desserts_label = Label(self.__menu_frame,\
+    self.__desserts_frame = Frame(self.__menu_frame, bg="pink")
+    self.__desserts_label = Label(self.__desserts_frame,\
                                 text=self.__desserts.get_name(),\
                                 )
     self.__desserts_label.config(font=("Arial Bold", 18), bg="pink")
     self.__desserts_label.pack(side='top')
 
-    self.__chocolate_cake_label = Label(self.__menu_frame,\
+    self.__chocolate_cake_label = Label(self.__desserts_frame,\
                                      text=self.__chocolate_cake.get_name(),\
-                                     )
-    self.__apple_pie_label = Label(self.__menu_frame,\
+                                     bg="pink")
+    self.__apple_pie_label = Label(self.__desserts_frame,\
                                      text=self.__apple_pie.get_name(),\
-                                     )
-    self.__fruit_salad_label = Label(self.__menu_frame,\
+                                     bg="pink")
+    self.__fruit_salad_label = Label(self.__desserts_frame,\
                                      text=self.__fruit_salad.get_name(),\
-                                     )
+                                     bg="pink")
 
     self.__chocolate_cake_label.pack(side='top')
     self.__apple_pie_label.pack(side='top')
     self.__fruit_salad_label.pack(side='top')
+    self.__desserts_frame.pack(side="top")
 
 #----- Create Meal Interface -------------------------------------------------
     self.__meal_label = Label(self.__meal_frame, text="Your Meal")
@@ -180,12 +189,13 @@ class MenuGUI:
 
     
     self.__salads_stringVar = StringVar()
-    self.__salads_list = self.__salads.get_items_list()
+    self.__salads_list = self.__salads.get_items()
     self.__salads_stringVar.set(self.__salads_list[0])
     
     self.__salads_popup = OptionMenu(self.__meal_frame,\
                                      self.__salads_stringVar,\
                                      *self.__salads_list)
+    self.__salads_popup.config(bg="light green")
     self.__salads_popup.pack(side='top')
 
 #----- Create Soups Pulldown Menu --------------------------------------------
@@ -197,11 +207,12 @@ class MenuGUI:
 
     
     self.__soups_stringVar = StringVar()
-    self.__soups_list = self.__soups.get_items_list()
+    self.__soups_list = self.__soups.get_items()
     self.__soups_stringVar.set(self.__soups_list[0])
     self.__soups_popup = OptionMenu(self.__meal_frame,\
                                      self.__soups_stringVar,\
                                      *self.__soups_list)
+    self.__soups_popup.config(bg="light blue")
     self.__soups_popup.pack(side='top')
 
 #----- Create Entrees Pulldwon Menu ------------------------------------------
@@ -213,11 +224,12 @@ class MenuGUI:
 
     
     self.__entrees_stringVar = StringVar()
-    self.__entrees_list = self.__entrees.get_items_list()
+    self.__entrees_list = self.__entrees.get_items()
     self.__entrees_stringVar.set(self.__entrees_list[0])
     self.__entrees_popup = OptionMenu(self.__meal_frame,\
                                      self.__entrees_stringVar,\
                                      *self.__entrees_list)
+    self.__entrees_popup.config(bg="orange")
     self.__entrees_popup.pack(side='top')
 
 #----- Create Desserts Pulldown Menu -----------------------------------------
@@ -229,22 +241,25 @@ class MenuGUI:
 
     
     self.__desserts_stringVar = StringVar()
-    self.__desserts_list = self.__desserts.get_items_list()
+    self.__desserts_list = self.__desserts.get_items()
     self.__desserts_stringVar.set(self.__desserts_list[0])
     self.__desserts_popup = OptionMenu(self.__meal_frame,\
                                      self.__desserts_stringVar,\
                                      *self.__desserts_list)
+    self.__desserts_popup.config(bg="pink")
     self.__desserts_popup.pack(side='top')
 
 #----- Create Totals Labels --------------------------------------------------
     self.__total_price = StringVar()
     #self.__total_price.set(self.
     self.__total_price_label = Label(self.__meal_frame,\
-                                     text=('Your total price is:'))
+                                     text=('Your total price is:'),
+                                     fg="white", bg="black")
     self.__total_price_label.pack(side='top')
 
     self.__display_price = Label(self.__meal_frame,\
-                                 textvariable = self.__total_price)
+                                 textvariable = (self.__total_price),
+                                 fg="white", bg="black")
     self.__display_price.pack(side='top')
                                            
                                      
@@ -252,11 +267,13 @@ class MenuGUI:
     self.__total_calories = StringVar()
     #self.__total_calories.set(
     self.__total_calories_label = Label(self.__meal_frame,\
-                                        text=("Your meal's calorie count:"))
+                                        text=("Your meal's calorie count:"),
+                                        fg="white", bg="black")
     self.__total_calories_label.pack(side='top')
 
     self.__calories_display = Label(self.__meal_frame,\
-                                    textvariable = self.__total_calories)
+                                    textvariable = self.__total_calories,
+                                    fg="white", bg="black")
     self.__calories_display.pack(side='top')
 
 
@@ -264,8 +281,10 @@ class MenuGUI:
 
     self.create = Button(self.__meal_frame, text="CREATE MEAL", \
                             command=self.create_meal)
+    self.create.config(highlightbackground="black", fg="white", disabledforeground="black")
     self.create.pack(side='top')
 
+    self.__frame.pack()
     self.__menu_frame.pack(side='left') #Pack menu frame
     self.__meal_frame.pack(side='left') #Pack meal frame
 
